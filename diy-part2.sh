@@ -18,3 +18,9 @@ sed -i 's/192.168.1.1/192.168.2.24/g' package/base-files/files/bin/config_genera
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/feeds/luci-app-unblockneteasemusic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic package/feeds/luci-app-amlogic
+
+./scripts/feeds update -a
+./scripts/feeds install -a
