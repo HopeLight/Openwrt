@@ -10,6 +10,9 @@
 # See /LICENSE for more information.
 #
 
+# Add autocore support for armvirt
+sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.24/g' package/base-files/files/bin/config_generate
 
@@ -20,7 +23,8 @@ sed -i 's/192.168.1.1/192.168.2.24/g' package/base-files/files/bin/config_genera
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/feeds/luci-app-unblockneteasemusic
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic package/feeds/luci-app-amlogic
+# Add luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic package/luci-app-amlogic
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
