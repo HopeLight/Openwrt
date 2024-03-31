@@ -22,9 +22,20 @@ sed -i 's/192.168.1.1/192.168.2.24/g' package/base-files/files/bin/config_genera
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/feeds/luci-app-unblockneteasemusic
-# Add luci-app-amlogic
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic package/luci-app-amlogic
+#删除旧的软件包
+rm -rf package/feeds/smpackage/UnblockNeteaseMusic
+rm -rf package/feeds/smpackage/UnblockNeteaseMusic-Go
+rm -rf package/feeds/luci/luci-app-unblockmusic
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+#下载新的解锁网易云插件
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/feeds/luci-app-unblockneteasemusic
+
+#下载新的clahs
+git clone https://github.com/vernesong/OpenClash.git package/feeds/
+# 编译 po2lmo (如果有po2lmo可跳过)
+pushd luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
+
+
+
