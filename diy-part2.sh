@@ -31,7 +31,7 @@ rm -rf package/feeds/luci/luci-app-unblockmusic
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/feeds/luci-app-unblockneteasemusic
 
 #下载新的clahs
-git clone https://github.com/vernesong/OpenClash.git package/feeds/
+git clone https://github.com/vernesong/OpenClash.git package/feeds/luci-app-openclash
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd luci-app-openclash/tools/po2lmo
 make && sudo make install
